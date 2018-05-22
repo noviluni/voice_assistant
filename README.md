@@ -24,29 +24,24 @@ while True:
 
 
 ### Requirements and installation:
-Before installing python dependencies, it's necessary to install system dependencies.
-
-##### System requirements
 
 ###### Ubuntu/Debian users:
+Before installing the Python package it's necessary to install system dependencies.
 
 `sudo apt-get install python3 python3-pip python3-pyaudio portaudio19-dev sox libsox-fmt-mp3 python-dev build-essential swig libpulse-dev`
 
 
-##### Python requirements
+Then, just type:
 
-To install Python requirements just type:
-
-```
-pip install -r requirements.txt
+```python3
+pip install voice_assistant
 ```
 
-*Note: we highly recommend to use a *virtualenv**
 
-If you get an error trying to install Python dependencies, maybe you need to install some of this system dependencies: 
+If you get an error trying to install the package, maybe you can solve it installing some of this system dependencies: 
 `libffi-dev libxml2-dev libxslt1-dev libpq-dev libldap2-dev libsasl2-dev libssl-dev zlib1g-dev`.
 
-Try to install them with `sudo apt-get install <dependece>` and then try to install Python dependencies again with: `pip3 install -r requirements.txt`.
+Try to install them with `sudo apt-get install <dependece>` and then try to install the package again with: `pip install voice_assistant`.
 
 
 ### How to use
