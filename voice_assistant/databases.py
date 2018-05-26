@@ -55,10 +55,19 @@ class Database:
             table_name: string-name
             values: dictionary. Example: {'key': keyword, 'value': value}
         """
-        self.cursor.execute('INSERT INTO {} ({}) VALUES({})'.format(table_name, ', '.join(values.keys()),
-                                                                    '"{}"'.format('", "'.join(values.values()))))
-        self.connexion.commit()
+        if self.backend == 'sqlite':
+            self.cursor.execute('INSERT INTO {} ({}) VALUES({})'.format(table_name, ', '.join(values.keys()),
+                                                                        '"{}"'.format('", "'.join(values.values()))))
+            self.connexion.commit()
+        else:
+            self._raise_not_implemented()
+
+    def clear_table(self, table_name):
+        if self.backend == 'sqlite':
+            self.cursor.execute('DELETE FROM {}'.format(table_name))
+        else:
+            self._raise_not_implemented()
 
     # TODO: Implement next methods:
     # def retrieve_from(self, table_name, )
-    # delete_database()
+

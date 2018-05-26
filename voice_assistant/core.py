@@ -132,8 +132,7 @@ class Assistant:
             return ''
 
     def forget_listened_sentences(self):
-        # TODO: This should use a 'Database' class method and not access directly to the cursor.
-        self.database.cursor.execute('DELETE FROM {}'.format(self.LISTEN_LOG_TABLE))
+        self.database.clear_table(self.LISTEN_LOG_TABLE)
 
     def get_all_spoken_sentences(self):
         # TODO: This should use a 'Database' class method and not access directly to the cursor.
@@ -148,3 +147,6 @@ class Assistant:
             return self.get_all_spoken_sentences()[-1]
         except IndexError:
             return ''
+
+    def forget_spoken_sentences(self):
+        self.database.clear_table(self.SPEAK_LOG_TABLE)
