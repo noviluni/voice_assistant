@@ -18,7 +18,7 @@ while True:
     assistant.speak('What do you need?')
     assistant.listen()
 
-    if assistant.has_heard(['hello', 'Hello', 'Good morning']):
+    if assistant.has_heard(['hello', 'hey', 'hi', good morning']):
         assistant.speak("Hello!, I'm ready for what you need.")
 ```
 
@@ -26,20 +26,24 @@ while True:
 ### Requirements and installation:
 
 ###### Ubuntu/Debian users:
-Before installing the Python package it's necessary to install system dependencies.
+Before installing the Python package it's necessary to install system dependencies. Try typing:
 
-`sudo apt-get install python3 python3-pip python3-pyaudio portaudio19-dev sox libsox-fmt-mp3 python-dev build-essential swig libpulse-dev`
+```bash
+sudo apt-get install python3 python3-pip python3-pyaudio portaudio19-dev sox libsox-fmt-mp3 python-dev build-essential swig libpulse-dev
+```
 
 
 Then, just type:
 
-```python3
-pip install voice_assistant
+```bash
+pip3 install -U voice_assistant
 ```
 
 
 If you get an error trying to install the package, maybe you can solve it installing some of this system dependencies: 
-`libffi-dev libxml2-dev libxslt1-dev libpq-dev libldap2-dev libsasl2-dev libssl-dev zlib1g-dev`.
+```bash
+libffi-dev libxml2-dev libxslt1-dev libpq-dev libldap2-dev libsasl2-dev libssl-dev zlib1g-dev
+```
 
 Try to install them with `sudo apt-get install <dependece>` and then try to install the package again with: `pip install voice_assistant`.
 
@@ -122,7 +126,7 @@ assistant.has_heard('hello')
 True
 ```
 
-This method returns `True` or `False` depending if word is in last recognised sentence or not.
+This method returns `True` or `False` depending if word is in last recognised sentence or not. It's not case sensitive so you can write words starting with capital letters or not.
  
 The method `has_heard` can accept a word, but also accepts a list of words. If one of provided words is in the last recognised sentece, it will return `True`:
 
@@ -133,22 +137,22 @@ True
 
 
 ##### Sentences log
-Assistant have a log of all listened sentences (in this moments it creates a simple SQLite database where is used).
+Assistant have a log with all listened sentences (in this moments it creates a simple SQLite database in the directory where is used).
 
 To print all listened sentences just type:
 
 ```python3
-assistant.get_all_listened_words()
+assistant.get_all_listened_sentences()
 ['hello', 'how are you']
 ```
 
 If you want to make it forget all listened words you can do it using:
 
 ```python3
-assistant.forget_listened_words()
+assistant.forget_listened_sentences()
 ```
 
-Now `get_all_listened_words()` should return an empty list.
+Now `get_all_listened_sentences()` should return an empty list.
 
 The `last_recognised` property doesn't access to memory, it just show what it's in RAM. To get last recognised from database, you can use the `get_last_recognised_from_memory()` method.
 
