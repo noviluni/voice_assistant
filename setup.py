@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='voice_assistant',
-      version='0.1.0',
+      version='0.2.0',
       description='Python library to build a Voice Assistant',
       url='https://github.com/noviluni/voice_assistant',
       author='Marc H.',
