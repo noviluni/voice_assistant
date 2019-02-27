@@ -13,7 +13,7 @@ class Database:
         self.database_name = database_name
         self.backend = backend
         self.connexion = sqlite3.connect(database_name)
-        self.cursor = self.connexion .cursor()
+        self.cursor = self.connexion.cursor()
 
     def _raise_not_implemented(self):
         raise NotImplementedError('Method not implemented for "{}" backend.'.format(self.backend))
