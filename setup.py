@@ -10,7 +10,7 @@ setup(name='voice_assistant',
       packages=['voice_assistant'],
       install_requires=[
           'SpeechRecognition==3.8.1',
-          'google-speech==1.0.16',
+          'google-speech==1.1.0',
           'PyAudio==0.2.11',
       ],
       zip_safe=False)
